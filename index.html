@@ -3,120 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raul | High-End Virtual Assistant Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <title>Raul B. | Elite VA & Operations Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-green: #76ba99; /* Nature Green */
-            --soft-green: #adcf9f;
-            --bg-light: #f1f7f1;
-            --text-dark: #2c3e50;
-            --glass-white: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.3);
+            /* Exact Nature-Inspired Green & White Palette */
+            --bg-base: #f0f7f4; /* Clean white-green */
+            --accent-green: #2ecc71; /* Vivid Leaf green */
+            --text-main: #1a1a1a;
+            --text-dim: #707070;
+            --glass: rgba(255, 255, 255, 0.4);
+            --border-glass: rgba(255, 255, 255, 0.2);
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.04);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
-            background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 50%, #f1f8e9 100%);
+            background-color: var(--bg-base);
+            background-image: radial-gradient(circle at 10% 20%, rgba(46, 204, 113, 0.08) 0%, rgba(255, 255, 255, 0) 80%);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
             line-height: 1.6;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3 { font-weight: 800; color: #000; }
+        a { text-decoration: none; transition: 0.3s; }
 
-        /* --- NAVIGATION --- */
+        /* --- STICKY NAV --- */
         nav {
-            background: var(--glass-white);
+            position: sticky; top: 0; width: 100%; z-index: 1000;
+            background: var(--glass);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 20px 0;
-            position: sticky; top: 0; z-index: 100;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 18px 0;
         }
-        .nav-flex { display: flex; justify-content: flex-end; gap: 30px; }
-        .nav-flex a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .nav-flex a:hover { color: var(--primary-green); }
+        .nav-content { display: flex; justify-content: flex-end; gap: 30px; }
+        .nav-links a { color: var(--text-main); font-size: 0.9rem; font-weight: 600; }
+        .nav-links a:hover { color: var(--accent-green); }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 100px 0;
-            text-align: center;
-            background: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
-            position: relative;
-            margin-bottom: 60px;
-        }
-        .hero::before {
-            content: ""; position: absolute; top:0; left:0; width:100%; height:100%;
-            background: rgba(241, 247, 241, 0.6);
-        }
-        .hero-content {
-            position: relative; z-index: 1;
-            background: var(--glass-white);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            padding: 60px; border-radius: 40px;
-            max-width: 800px; margin: 0 auto;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-        }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 20px; }
-        .btn-green {
-            background: var(--primary-green); color: white;
-            padding: 15px 35px; border-radius: 50px; display: inline-block;
-            text-decoration: none; font-weight: 700; margin-top: 20px;
-            box-shadow: 0 10px 20px rgba(118, 186, 153, 0.3);
-        }
-
-        /* --- GLASS CARDS --- */
+        /* --- GLASS CARD --- */
         .glass-card {
-            background: var(--glass-white);
+            background: var(--glass);
             backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
             border-radius: 25px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
             transition: 0.4s ease;
         }
-        .glass-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .glass-card:hover { transform: translateY(-8px); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08); }
 
-        /* --- SERVICES --- */
-        .section-title { text-align: center; font-size: 2.5rem; margin: 80px 0 10px; font-family: 'Montserrat'; }
-        .section-sub { text-align: center; color: #777; margin-bottom: 50px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        /* --- HERO SECTION --- */
+        .hero { padding: 120px 0 80px; text-align: center; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 1.1; margin-bottom: 25px; }
+        .hero p { color: var(--text-dim); font-size: 1.4rem; max-width: 700px; margin: 0 auto 50px; }
+        
+        .btn-group { display: flex; justify-content: center; gap: 20px; }
+        .btn { padding: 18px 36px; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; }
+        
+        .btn-primary { background: var(--accent-green); color: white; box-shadow: 0 10px 20px -5px rgba(46, 204, 113, 0.4); }
+        .btn-secondary { border: 2px solid var(--accent-green); color: var(--accent-green); background: transparent; }
 
-        /* --- CHAT UI --- */
-        .chat-ui {
-            background: #fff; border-radius: 20px; max-width: 600px; margin: 40px auto;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05); overflow: hidden;
+        /* --- SECTIONS COMMON --- */
+        section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 10px; }
+        .section-subtitle { text-align: center; color: var(--text-dim); font-size: 1.2rem; margin-bottom: 60px; }
+
+        /* --- ABOUT ME --- */
+        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: center; }
+        .profile-img { width: 100%; border-radius: 30px; border: 10px solid white; box-shadow: var(--shadow-soft); }
+        .about-text h2 { margin-bottom: 20px; color: var(--accent-green); }
+
+        /* --- SERVICES GRID --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { text-align: center; padding: 50px; }
+        .service-icon { font-size: 3.5rem; margin-bottom: 25px; color: var(--accent-green); }
+
+        /* --- CHAT MOCKUP --- */
+        .chat-card { max-width: 700px; margin: 0 auto; background: white; border-radius: 20px; padding: 0; box-shadow: var(--shadow-soft); overflow: hidden; }
+        .chat-header { background: #f5f8f6; padding: 20px 30px; border-bottom: 1px solid #eee; font-weight: 600; color: var(--accent-green); }
+        .chat-body { padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+        .bubble { max-width: 80%; padding: 15px 20px; border-radius: 18px; font-size: 1rem; position: relative; }
+        .bubble-in { background: #f1f3f4; align-self: flex-start; border-bottom-left-radius: 5px; color: #222; }
+        .bubble-out { background: var(--accent-green); align-self: flex-end; border-bottom-right-radius: 5px; color: white; }
+
+        /* --- DATA SAMPLES WITH CSS GRAPH --- */
+        .data-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+        .data-preview { background: white; padding: 30px; border-radius: 20px; border: 1px solid #eee; }
+        
+        /* The CSS Circular Graph */
+        .css-graph {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: conic-gradient(var(--accent-green) 98%, #e0e0e0 0);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; position: relative; box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
         }
-        .chat-header { background: #f8f9fa; padding: 15px; border-bottom: 1px solid #eee; font-weight: 600; }
-        .chat-body { padding: 25px; display: flex; flex-direction: column; gap: 15px; }
-        .msg { padding: 12px 18px; border-radius: 15px; max-width: 80%; font-size: 0.9rem; }
-        .msg-in { background: #f1f3f4; align-self: flex-start; }
-        .msg-out { background: var(--primary-green); color: white; align-self: flex-end; }
+        .css-graph::after { content: "98%"; font-size: 2rem; font-weight: 800; color: var(--accent-green); position: absolute; }
+        
+        /* --- SHOWCASE --- */
+        .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; }
+        .showcase-item { background: white; padding: 30px; border-radius: 15px; border: 1px solid #eee; }
+        .showcase-icon { font-size: 2.5rem; margin-bottom: 15px; color: var(--accent-green); }
 
-        /* --- DATA SAMPLES --- */
-        .dashboard-preview {
-            background: #fff; border-radius: 20px; padding: 20px;
-            border: 1px solid #eee; margin-top: 20px;
-        }
-        .db-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .circle-graph { width: 80px; height: 80px; border-radius: 50%; border: 8px solid var(--primary-green); border-top-color: #eee; margin: 0 auto; }
-
+        /* --- CONTACT --- */
+        .contact-card { text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+        input, textarea { padding: 18px; border-radius: 12px; border: 1px solid #eee; background: #fafafa; font-family: inherit; font-size: 1rem; }
+        textarea { resize: none; height: 140px; }
+        
         /* --- FOOTER --- */
-        footer { padding: 60px 0; text-align: center; color: #999; font-size: 0.85rem; }
+        footer { text-align: center; padding: 60px 0; color: var(--text-dim); border-top: 1px solid #eee; font-size: 0.9rem; }
 
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero-content { padding: 30px; }
-            .hero h1 { font-size: 2rem; }
+            .about-content, .data-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .showcase-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="container nav-flex">
+    <div class="container nav-content nav-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#showcase">Case Studies</a>
@@ -124,87 +136,121 @@
     </div>
 </nav>
 
-<header class="hero">
-    <div class="container">
-        <div class="hero-content">
+<main class="container">
+    
+    <header class="hero">
+        <div class="glass-card" style="padding: 60px;">
             <h1>I Help Businesses Run Smoother, Faster, and Smarter</h1>
             <p>Expert in Virtual Assistance • Admin Workforce Supervision • CRM & Operations</p>
-            <div style="display: flex; justify-content: center; gap: 20px;">
-                <a href="mailto:raulboss01@gmail.com" class="btn-green">Hire Me</a>
-                <a href="#showcase" class="btn-green" style="background: white; color: var(--primary-green); border: 2px solid var(--primary-green);">View My Work</a>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Hire Me</a>
+                <a href="#showcase" class="btn btn-secondary">View My Work</a>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<section class="container" id="about">
-    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;">
-        <img src="profile.jpg" alt="Raul" style="width: 100%; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-        <div class="glass-card">
-            <h2 style="font-family: 'Montserrat'; margin-bottom: 15px;">About Me</h2>
-            <p>Raul is a professional virtual assistant specializing in data and operations. With 3+ years of hands-on experience supporting real estate teams, I excel in CRM management, supervising agents, and ensuring productivity across high-volume accounts.</p>
+    <section id="about" class="about-content">
+        <img src="profile.jpg" alt="Raul B." class="profile-img">
+        <div class="glass-card about-text">
+            <h2>About Me</h2>
+            <p>Reliable Virtual Assistant specialized in data and operations. With 3+ years of experience, I support real estate teams, manage intricate CRM systems, and supervise admin workflows. I translate complex operational needs into accurate, efficient, and scalable data solutions.</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="container" id="services">
-    <h2 class="section-title">Services</h2>
-    <p class="section-sub">Hire the best professional service</p>
-    <div class="services-grid">
-        <div class="glass-card">
-            <h3>Virtual Assistance</h3>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Expert in administrative support and executive assistance.</p>
+    <section id="services">
+        <h2 class="section-title">Services</h2>
+        <p class="section-subtitle">Premium operational and administrative support.</p>
+        <div class="services-grid">
+            <div class="glass-card service-card">
+                <div class="service-icon">👤</div>
+                <h3>Virtual Assistance</h3>
+                <p>Calendar and task management to free your time.</p>
+            </div>
+            <div class="glass-card service-card">
+                <div class="service-icon">💬</div>
+                <h3>Customer Support</h3>
+                <p>Email and chat management with focus on rapid resolution.</p>
+            </div>
+            <div class="glass-card service-card">
+                <div class="service-icon">📊</div>
+                <h3>CRM Management</h3>
+                <p>Setup and maintenance of lead tracking databases (e.g., Podio).</p>
+            </div>
+            <div class="glass-card service-card" style="grid-column: 1 / -1;">
+                <div class="service-icon">👥</div>
+                <h3>Workforce Supervision</h3>
+                <p>Supervising cold callers, monitoring call quality, and providing QA feedback to maintain high productivity.</p>
+            </div>
         </div>
-        <div class="glass-card">
-            <h3>Customer Support</h3>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Chat and Email management with focus on resolution.</p>
-        </div>
-        <div class="glass-card">
-            <h3>CRM Management</h3>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Management of Podio and other lead tracking systems.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section class="container" id="showcase">
-    <h2 class="section-title">Data Entry Samples</h2>
-    <div style="display: grid; grid-template-columns: 2fr 1.2fr; gap: 30px;">
-        <div class="glass-card">
-            <div class="dashboard-preview">
-                <div class="db-header">
-                    <strong>Dashboard Overview</strong>
-                    <span style="font-size: 0.8rem; color: #999;">Accuracy • Organization • Efficiency</span>
+    <section id="showcase">
+        <h2 class="section-title">Sample Customer Interaction</h2>
+        <p class="section-subtitle">Real-world sample of customer support problem solving.</p>
+        <div class="chat-card">
+            <div class="chat-header">● Messenger / Support Chat</div>
+            <div class="chat-body">
+                <div class="bubble bubble-in">Why is the camera not charging properly?</div>
+                <div class="bubble bubble-out">
+                    Thank you for reaching out! The issue may be related to insufficient sunlight exposure.
+                    <br><br>
+                    I recommend repositioning the camera to ensure it receives direct sunlight for optimal charging. Let me know once done, and I’ll be happy to assist further.
                 </div>
-                <div class="circle-graph"></div>
-                <p style="text-align: center; margin-top: 10px; font-weight: 600;">98% Accuracy Rate</p>
             </div>
         </div>
-        <div class="glass-card">
-            <h3>Technical Showcase</h3>
-            <div style="margin-top: 20px; font-size: 0.85rem;">
-                <p><strong>Problem:</strong> Device connectivity issues.</p>
-                <p><strong>Action:</strong> Step-by-step diagnostic guide.</p>
-                <p><strong>Result:</strong> 100% resolution rate.</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section class="container">
-    <h2 class="section-title" style="margin-top: 40px;">Sample Customer Interaction</h2>
-    <div class="chat-ui">
-        <div class="chat-header">Messenger / Support Support</div>
-        <div class="chat-body">
-            <div class="msg msg-in">Why is the camera not charging properly?</div>
-            <div class="msg msg-out">Based on your concern, the issue may be related to sunlight exposure. I recommend repositioning the camera for direct sunlight. Let me know if that works!</div>
+    <section>
+        <h2 class="section-title">Data Entry Samples</h2>
+        <p class="section-subtitle">Precision data organization and analysis.</p>
+        <div class="data-grid glass-card">
+            <div class="data-preview">
+                <div class="css-graph"></div>
+                <p style="text-align: center; color: var(--text-dim);">Product Listing Data Sample: <strong>98% Accuracy Rate</strong></p>
+            </div>
+            <div style="text-align: right; color: var(--accent-green); display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+                <h3>Accuracy.</h3>
+                <h3>Organization.</h3>
+                <h3>Efficiency.</h3>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section>
+        <h2 class="section-title">Technical Support Showcase</h2>
+        <div class="showcase-grid">
+            <div class="showcase-item">
+                <div class="showcase-icon">🔗</div>
+                <h3>Problem:</h3><p>Broken checkout links in emails.</p>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-icon">🔍</div>
+                <h3>Action:</h3><p>Diagnosed CRM template variable error.</p>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-icon">✅</div>
+                <h3>Result:</h3><p>100% link functionality restored.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="glass-card contact-card">
+            <h2 class="section-title">Let’s Work Together</h2>
+            <p>Ready to scale your operations? Connect below.</p>
+            <div class="contact-form">
+                <input type="email" placeholder="raulboss01@gmail.com">
+                <textarea placeholder="How can I help you today?"></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+            <a href="https://wa.me/6399408519850" class="btn btn-secondary" style="margin-top:20px; display:inline-block;">Call me on WhatsApp</a>
+        </div>
+    </section>
+
+</main>
 
 <footer>
-    <div class="container">
-        <p>© 2026 Raul B. | Freelancer</p>
-    </div>
+    <p>© 2026 Raul B. | Virtual Assistant | Philippines</p>
 </footer>
 
 </body>
